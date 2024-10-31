@@ -35,7 +35,7 @@ CNPY_COMMIT="4e8810b1a8637695171ed346ce68f6984e585ef4"
 HLSLIB_COMMIT="16e5847a5e3ef76cffe84c8fad2f010d593457d3"
 OMX_COMMIT="0b59762f9e4c4f7e5aa535ee9bc29f292434ca7a"
 AVNET_BDF_COMMIT="2d49cfc25766f07792c0b314489f21fe916b639b"
-XIL_BDF_COMMIT="8cf4bb674a919ac34e3d99d8d71a9e60af93d14e"
+XIL_BDF_COMMIT="035e9055a6a88989048b9a22b2a372035a4c2d1d" #"8cf4bb674a919ac34e3d99d8d71a9e60af93d14e"
 RFSOC4x2_BDF_COMMIT="13fb6f6c02c7dfd7e4b336b18b959ad5115db696"
 KV260_BDF_COMMIT="98e0d3efc901f0b974006bc4370c2a7ad8856c79"
 EXP_BOARD_FILES_MD5="226ca927a16ea4ce579f1332675e9e9a"
@@ -63,6 +63,7 @@ AVNET_BDF_DIR="avnet-bdf"
 XIL_BDF_DIR="xil-bdf"
 RFSOC4x2_BDF_DIR="rfsoc4x2-bdf"
 KV260_SOM_BDF_DIR="kv260-som-bdf"
+ZYBOZ720_BDF_DIR="zybo-z7-20"
 
 # absolute path to this script, e.g. /home/user/bin/foo.sh
 SCRIPT=$(readlink -f "$0")
@@ -108,10 +109,11 @@ fetch_board_files() {
     wget -q https://dpoauwgwqsy2x.cloudfront.net/Download/pynq-z2.zip
     unzip -q pynq-z1.zip
     unzip -q pynq-z2.zip
-    cp -r $SCRIPTPATH/deps/$AVNET_BDF_DIR/* $SCRIPTPATH/deps/board_files/
+    cp -r $SCRIPTPATH/deps/$AVNET_BDF_DIR/* $SCRIPTPATH/deps/board_files/;
     cp -r $SCRIPTPATH/deps/$XIL_BDF_DIR/boards/Xilinx/rfsoc2x2 $SCRIPTPATH/deps/board_files/;
     cp -r $SCRIPTPATH/deps/$RFSOC4x2_BDF_DIR/board_files/rfsoc4x2 $SCRIPTPATH/deps/board_files/;
     cp -r $SCRIPTPATH/deps/$KV260_SOM_BDF_DIR/boards/Xilinx/kv260_som $SCRIPTPATH/deps/board_files/;
+    cp -r $SCRIPTPATH/deps/$XIL_BDF_DIR/boards/Digilent/zybo-z7-20 $SCRIPTPATH/deps/board_files/;
     cd $OLD_PWD
 }
 
